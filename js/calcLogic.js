@@ -8,6 +8,7 @@ let frontInput = document.querySelector("#fronts");
 let estimateButton = document.querySelector(".show-estimate-button");
 let modalButton = document.querySelector(".open-modal");
 let modalFooter = document.querySelector(".modal-footer");
+const backButton = document.querySelector(".backButton");
 
 // ------clicking "how much will it cost" button --------
 document.querySelector("#estimate").addEventListener("click", () => {
@@ -24,22 +25,33 @@ document.querySelector("#estimate").addEventListener("click", () => {
 
   // ---checks if input is number and applies appropriate text---
   if (isNaN(upperHighCost) || isNaN(upperLowCost)) {
-    upperText.innerHTML = `<b>Numbers only, ya goof!</b>`;
+    upperText.innerHTML = `Please use whole numbers.`;
   } else {
-    upperText.innerHTML = `<b>Your upper cabinets will range between $${upperLowCost} and $${upperHighCost}.</b>`;
+    if (Math.floor(upper) == upper) {
+      upperText.innerHTML = `<b>Upper cabinets will range between $${upperLowCost} and $${upperHighCost}.</b>`;
+    } else {
+      upperText.innerHTML = `Please use whole numbers.`;
+    }
   }
 
   if (isNaN(lowerHighCost) || isNaN(lowerLowCost)) {
-    lowerText.innerHTML = `<b>Numbers only, ya goof!<b>`;
+    lowerText.innerHTML = `Please use whole numbers.`;
   } else {
-    lowerText.innerHTML = `<b>Your lower cabinets will range between $${lowerLowCost} and $${lowerHighCost}.</b>`;
+    if (Math.floor(lower) == lower) {
+      lowerText.innerHTML = `<b>Lower cabinets will range between $${lowerLowCost} and $${lowerHighCost}.</b>`;
+    } else {
+      lowerText.innerHTML = `Please use whole numbers.`;
+    }
   }
 
   if (isNaN(frontHighCost) || isNaN(frontLowCost)) {
-    frontText.innerHTML = `<b>Numbers only, ya goof!</b>`;
+    frontText.innerHTML = `Please use whole numbers.`;
   } else {
-    frontText.innerHTML = `<b>Your drawer covers will range between $${frontLowCost} and $${frontHighCost}.</b>`;
-    console.log(upperHighCost);
+    if (Math.floor(fronts) == fronts) {
+      frontText.innerHTML = `<b>Drawer covers will range between $${frontLowCost} and $${frontHighCost}.</b>`;
+    } else {
+      frontText.innerHTML = `Please use whole numbers.`;
+    }
   }
 
   //   --hides input fields and button after clicks
@@ -49,6 +61,7 @@ document.querySelector("#estimate").addEventListener("click", () => {
   estimateButton.classList.remove("show-estimate-button");
   estimateButton.classList.add("textFieldHidden");
   modalFooter.classList.remove("textFieldHidden");
+  backButton.classList.remove("textFieldHidden");
 });
 
 // ---Modal Logic----
@@ -74,12 +87,21 @@ for (const el of open) {
     estimateButton.classList.add("show-estimate-button");
     estimateButton.classList.remove("textFieldHidden");
     modalFooter.classList.add("textFieldHidden");
+    backButton.classList.add("textFieldHidden");
   });
 }
+// Back button
 
-// close
-document.addEventListener("click", (e) => {
-  if (e.target == document.querySelector(".modal.is-visible")) {
-    document.querySelector(".modal.is-visible").classList.remove(isVisible);
-  }
+backButton.addEventListener("click", () => {
+  upperText.innerHTML = `How many upper cabinets need doors?:`;
+  lowerText.innerHTML = `How many lower cabinets need doors?:`;
+  frontText.innerHTML = "How many drawers need covers?:";
+  upperInput.classList.remove("textFieldHidden");
+  lowerInput.classList.remove("textFieldHidden");
+  frontInput.classList.remove("textFieldHidden");
+  estimateButton.classList.remove("textFieldHidden");
+  estimateButton.classList.add("show-estimate-button");
+  estimateButton.classList.remove("textFieldHidden");
+  modalFooter.classList.add("textFieldHidden");
+  backButton.classList.add("textFieldHidden");
 });

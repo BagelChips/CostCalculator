@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <button type="button" class="open-modal" data-open="modal1">
-      I'd like an estimate!
-    </button>
-
-    <div class="modal" id="modal1">
-      <header class="modal-header"></header>
-      <div class="modal-dialog">
         <section class="modal-content">
           <ul>
             <li class="input">
@@ -24,28 +17,25 @@
               >
               <input type="text" id="upperDoors" />
             </li class="input">
-            <p class="averageDescription"><i>-Average Upper Door Demensions: 16” x 31” (3.44 sqft)</i></p>
             <li>
               <label class="lowerText"for="lowerDoors"><b>How many lower cabinets need doors?</b></label
               >
               <input type="text" id="lowerDoors" />
             </li>
-            <p class="averageDescription"><i>- Average Lower Door Demensions: 25” x 16” (2.78 sqft)</i></p>
             <li>
               <label class="frontText"for="fronts"
                 ><b>How many drawers need front covers?</b></label
               >
               <input type="text" id="fronts" />
             </li>
-            <p class="averageDescription"><i>-Average Cover Dimensions: 13” x 5” (0.45 sqft)</i></p>
           </ul>
           <div class="buttonDiv">
             <button type="submit" class="show-estimate-button" id="estimate">How Much Will It Cost?</button>
+            <button type="submit" class="backButton textFieldHidden">Back</button>
+            <footer class="modal-footer textFieldHidden"><i>Prices vary based on paint and material grade</i></footer>
         </div>
         </section>
-        <footer class="modal-footer"><i>Prices vary based on paint and material grade</i></footer>
-      </div>
-    </div>
+
     <script src="/js/calcLogic.js" async defer></script>
   </body>
 </html>

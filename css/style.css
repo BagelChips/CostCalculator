@@ -116,6 +116,8 @@ body {
 .modal-footer {
   background: var(--lightgray);
   text-align: center;
+  display: block;
+  border-radius: 10%;
 }
 
 .modal-header {
@@ -143,6 +145,29 @@ body {
   margin-left: auto;
   margin-bottom: 1rem;
   border-radius: 5px;
+}
+
+.backButton {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background: var(--blue);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.exit {
+  display: flex;
+  background: var(--lightgray);
+  color: var(--gray);
+  padding: 0.1rem 0.2rem;
+  margin-left: 2px;
+  margin-bottom: 1rem;
+  border-radius: 3px;
 }
 
 .textFieldHidden {
